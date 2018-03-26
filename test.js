@@ -173,8 +173,8 @@ function bTogglePage(bRequest3dOpen){
       var testVid = $("<iframe>").attr("src","https://www.youtube.com/embed/" + youtube);
       //testVid.attr("style","display: none;")
       testVid.attr("id", "testVid");
-      testVid.attr("width",(($('#youTubeVid').innerWidth() * .8)));
-      testVid.attr("height",(($('#youTubeVid').innerWidth() * .8) * .61))
+      testVid.attr("width",(($('#mobility').innerWidth() * .8)));
+      testVid.attr("height",(($('#mobility').innerWidth() * .8) * .61))
       console.log(testVid);
       $("#youTubeVid").append(testVid);
       bTogglePage(false);
