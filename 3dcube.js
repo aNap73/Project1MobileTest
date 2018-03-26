@@ -566,7 +566,7 @@ $(document).ready(function () {
     //ant3d.StartUp(jQueryDomElement, SearchText);   
     ant3d.StartUp($("#rightherebaby"), $('#input').val(), displayFrom3D);
     $('#input').val('');
-  });
+  });g
   $('#input').on('keyup', function (e) {
     if (e.key === 'Enter') {
       ant3d.StartUp($("#rightherebaby"), $('#input').val(), displayFrom3D);
