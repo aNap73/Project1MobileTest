@@ -232,8 +232,8 @@ var ant3d = {
     //   ant3d.ant3dMouse.y = - ( e.pageY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
     // }
     
-    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
+    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
   },
   GetTextArray: function (inText, inLineLen) {
     //This function wraps text el-manuel aan.
