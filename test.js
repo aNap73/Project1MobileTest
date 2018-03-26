@@ -1,3 +1,4 @@
+
 var closeYouTube = false;
 
 
@@ -118,7 +119,10 @@ $(".collapsible-header").on("click", function(event) {
 $("#searchTest").on("keyup", function(event) {
   event.preventDefault();
   if (event.key === "Enter") {
-  if(($("#searchBarMain").val().length()) === 0){
+
+  var testKey = $("#searchBarMain").val();
+  console.log(testKey);
+  if(testKey.length === 0){
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
     msg.text = "Please search for a valid term!";
@@ -130,7 +134,7 @@ $("#searchTest").on("keyup", function(event) {
   } else {
  event.preventDefault();
     bTogglePage(true);
-    var testKey = $("#searchBarMain").val();
+   
     console.log(testKey);
     //$(".test").text(testKey);
     $("#test1").text(testKey);
@@ -210,4 +214,5 @@ function displayFrom3D(giff, youtube, speechText){
   }
 
 }
+
 
