@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//2
+//0
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
