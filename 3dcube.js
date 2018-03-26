@@ -86,7 +86,7 @@ var ant3d = {
       ant3d.GenerateObjects();
     });
   },
-  getWikiData: function (SearchTerm, callback) {
+  getWikiData: function (SearchTerm) {
     $.ajax({
       type: "GET",
       url: 'https://en.wikipedia.org/w/api.php?action=opensearch&search="' + SearchTerm + '"&format=json&callback=?',
@@ -100,10 +100,10 @@ var ant3d = {
         ant3d.colArticles.push(jsondata[2][index]);
         ant3d.colLinks.push(jsondata[3][index]);
       })
-      callback(SearchTerm);
+      ant3d.getYouTubeData(SearchTerm);
     });
   },
-  GetGiffys: function (inSrch, callback) {
+  GetGiffys: function (inSrch) {
     let gkey = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
     let offset = Math.floor(Math.random() * 125);
     ant3d.colMovs.length = 0;
@@ -117,8 +117,7 @@ var ant3d = {
         let gif = rd.images.looping.mp4;
         ant3d.colGiffys.push(gif);
       }
-      callback(inSrch, ant3d.getYouTubeData(inSrch));
-      //callback(inSrch, ant3d.GenerateObjects);
+      ant3d.getWikiData(inSrch);      
     });
   },
   RunVideos: function () {
@@ -177,25 +176,25 @@ var ant3d = {
       ant3d.callpage = inOutCallback;
       ant3d.bFirstTime = false;
       //   $(document).off('dblclick');
-      $(document).on('dblclick',
+      $(ant3d.jRightHereBaby).on('dblclick',
         function (e) {
           ant3d.bDblClick = true;
           //    e.preventDefault();
         });
       //   $(document).off('click');
-      $(document).on('click', function (e) {
+      $(ant3d.jRightHereBaby).on('click', function (e) {
         ant3d.mylastevent = e;
         ant3d.RunVideos();
       });
       //inJQueryDomElement = $('.mycanvas');
       //   $(document).off('touchstart');
-      $(document).on('touchstart', function (e) {
+      $(ant3d.jRightHereBaby).on('touchstart', function (e) {
         ant3d.mylastevent = e;
         ant3d.UpdateMouse(e);
         ant3d.RunVideos();
       });
       //    $(document).off('touchend');
-      $(document).on('touchend', function (e) {
+      $(ant3d.jRightHereBaby).on('touchend', function (e) {
         ant3d.UpdateMouse(e);
         ant3d.DeltaX = ant3d.mylastevent.originalEvent.touches[0].pageX - e.originalEvent.changedTouches[0].pageX;
         ant3d.bFireDetectObjectsUnderMouse = true
@@ -204,14 +203,14 @@ var ant3d = {
         ant3d.RunVideos();
       });
       //    $(document).off('mousedown');
-      $(document).on('mousedown', function (e) {
+      $(ant3d.jRightHereBaby).on('mousedown', function (e) {
         ant3d.mylastevent = e;
         ant3d.UpdateMouse(e);
         ant3d.bFireDetectObjectsUnderMouse = true;
         ant3d.RunVideos();
       });
       //    $(document).off('mouseup');
-      $(document).on('mouseup', function (e) {
+      $(ant3d.jRightHereBaby).on('mouseup', function (e) {
         ant3d.UpdateMouse(e);
         ant3d.DeltaX = ant3d.mylastevent.clientX - e.clientX;
         //console.log(ant3d.DeltaX);
@@ -233,8 +232,8 @@ var ant3d = {
     //   ant3d.ant3dMouse.y = - ( e.pageY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
     // }
     
-    ant3d.ant3dMouse.x = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth * ant3d.Wcoef)) * 2 - 1;
+    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight * ant3d.Hcoef)) * 2 + 1;
   },
   GetTextArray: function (inText, inLineLen) {
     //This function wraps text el-manuel aan.
