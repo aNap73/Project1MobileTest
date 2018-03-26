@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//1
+//2
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
@@ -240,16 +240,16 @@ var ant3d = {
     //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef))  ;
     console.log('new ' + ant3d.ant3dMouse.x + ' ' + ant3d.ant3dMouse.y);
   },
-  GetTextArray: function (inText, inLineLen) {
+  GetTextArray: function (inMyText, inMyLineLen) {
     //This function wraps text el-manuel aan.
     let col = [];
-    let wrkwords = inText.split(' ');
+    let wrkwords = inMyText.split(' ');
     let wrkline = '';
     //Split words by space into array
     $.each(wrkwords, function (i, item) {
       let curline = wrkline + ' ' + item;
       //If current line + new word and space is too big. break
-      if (curline.length > inLineLen) {
+      if (curline.length > inMyLineLen) {
         //break line; push to output col
         col.push(wrkline);
         wrkline = item;
