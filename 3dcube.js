@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v 1.0.0.0.2.
+//v.0.0.0.0.0
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
@@ -78,6 +78,7 @@ var ant3d = {
       ant3d.colYTVidImgs.length = 0;
       let srchItems = response.result.items;
       $.each(srchItems, function (index, item) {
+        console.log(item);
         ant3d.colYTVidIds.push(item.id);
         // I owe you a beer CORS man... XXXOOO  
         ant3d.colYTVidImgs.push('http://cors-anywhere.herokuapp.com/' + item.snippet.thumbnails.default.url);
@@ -221,12 +222,28 @@ var ant3d = {
     ant3d.GetGiffys(inSrch, ant3d.getWikiData);
   },
   UpdateMouse: function (e) {
-    
-    ant3d.ant3dMouse.x = ((e.clientX) / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
+    console.log(e);
+    // if(e.ClientX){
+    //   ant3d.ant3dMouse.x = ( e.clientX / ($('#rightherebaby').innerWidth * ant3d.Wcoef) ) * 2 - 1;
+    //   ant3d.ant3dMouse.y = - ( e.clientY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
+    // }
+    // if(e.pageX){
+    //   ant3d.ant3dMouse.x = ( e.pageX / ($('#rightherebaby').innerWidth * ant3d.Wcoef) ) * 2 - 1;
+    //   ant3d.ant3dMouse.y = - ( e.pageY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
+    // }
+    let ox = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
+    let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    let ofx = $(ant3d.jRightHereBaby).offset().left;
+    let ofy = $(ant3d.jRightHereBaby).offset().top;
+    //ant3d.ant3dMouse.x = ((e.clientX) / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
     //ant3d.ant3dMouse.y = - ((e.clientY) / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
-
-    //ant3d.ant3dMouse.x = ((e.clientX) / (ant3d.jRightHereBaby.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - ((e.clientY) / (ant3d.jRightHereBaby.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    
+    console.log('old ' + ox + ' ' + oy);
+    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
+    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
+    //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef))  ;
+    //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef))  ;
+    console.log('new ' + ant3d.ant3dMouse.x + ' ' + ant3d.ant3dMouse.y);
   },
   GetTextArray: function (inMyText, inMyLineLen) {
     //This function wraps text el-manuel aan.
@@ -518,7 +535,8 @@ var ant3d = {
     let graObj = ant3d.antDetectObjectsUnderMouse();
     if (graObj[0]) {
       if (ant3d.bDblClick === true) {
-    
+        console.log('graObj');
+        console.log(graObj[0].object);
         ant3d.CurGiffy = graObj[0].object.MyGiffyLink;
         ant3d.CurYouTube = graObj[0].object.YouTubeId.videoId;
         ant3d.ReadText = graObj[0].object.Title + ' ' + graObj[0].object.Article;
