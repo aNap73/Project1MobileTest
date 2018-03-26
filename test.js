@@ -139,13 +139,9 @@ function bTogglePage(bRequest3dOpen){
     }
   });
   
-  // $("#closeButton").on("click", function() {
-  //   $("#the3Dbox").slideToggle();
-  //   b3dOpen = true;
-  //   $("#youTubeVid").slideToggle();
-  //   $("#openButton").toggle();
-  //   $("#closeButton").toggle();
-  // });
+   $("#closeButton").on("click", function() {
+    bTogglePage(true);
+   });
   
   // $("#openButton").on("click", function() {
   //   $("#the3Dbox").slideToggle();
