@@ -109,12 +109,15 @@ a {
 #the3Dbox,#youTubeVid.card {
   background-color: #ef6c00 !important;
 }
+.navBarPic{
+  display: block;
+}
 .copy{  
-  padding: 3% 3% 0 0;
-  
-  margin: 0;
-  float: right;
-  z-index: 10 ;
-  color: #000;
- 
+  position: relative;
+  top: -15px;
+  padding: 0 0 0 70%;  
+  margin: 0 0 6% 0;
+  font-size: .8em;
+  z-index: 25;
+  color: #000; 
 }
