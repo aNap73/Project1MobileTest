@@ -233,9 +233,17 @@ var ant3d = {
     // }
     let ox = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
     let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    let ofx = $(ant3d.jRightHereBaby).offset().left;
+    let ofy = $(ant3d.jRightHereBaby).offset().top;
+    ant3d.ant3dMouse.x = ((e.clientX + ofx) / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
+    ant3d.ant3dMouse.y = - ((e.clientY + ofy) / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+
+    
+    
+
     console.log('old ' + ox + ' ' + oy);
-    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
+    //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
+    //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
     //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef))  ;
     //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef))  ;
     console.log('new ' + ant3d.ant3dMouse.x + ' ' + ant3d.ant3dMouse.y);
