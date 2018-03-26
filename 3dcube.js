@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v.0.0.0.0.4
+//v.0.0.0.0.5
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
@@ -154,10 +154,7 @@ var ant3d = {
     ant3d.renderer.renderLists.dispose();
     ant3d.scene = new THREE.Scene();
     ant3d.renderer = new THREE.WebGLRenderer();
-    //ant3d.myheight = ant3d.jRightHereBaby.height() * ant3d.Hcoef;//window.innerHeight * ant3d.Hcoef;;
-    //ant3d.mywidth = ant3d.jRightHereBaby.width()  * ant3d.Wcoef;//window.innerWidth * ant3d.Wcoef;
-    //ant3d.camera = new THREE.PerspectiveCamera(75, (ant3d.mywidth / ant3d.myheight), 0.1, 1000);
-    //ant3d.renderer.setSize(ant3d.mywidth, ant3d.myheight);
+
     ant3d.Resize();
     ant3d.colMovs.length = 0;
     ant3d.colHeadings.length = 0;
@@ -175,25 +172,20 @@ var ant3d = {
     if (ant3d.bFirstTime) {
       ant3d.callpage = inOutCallback;
       ant3d.bFirstTime = false;
-      //   $(document).off('dblclick');
       $(ant3d.jRightHereBaby).on('dblclick',
         function (e) {
           ant3d.bDblClick = true;
-          //    e.preventDefault();
+
         });
-      //   $(document).off('click');
       $(ant3d.jRightHereBaby).on('click', function (e) {
         ant3d.mylastevent = e;
         ant3d.RunVideos();
       });
-      //inJQueryDomElement = $('.mycanvas');
-      //   $(document).off('touchstart');
       $(ant3d.jRightHereBaby).on('touchstart', function (e) {
         ant3d.mylastevent = e;
         ant3d.UpdateMouse(e);
         ant3d.RunVideos();
       });
-      //    $(document).off('touchend');
       $(ant3d.jRightHereBaby).on('touchend', function (e) {
         ant3d.UpdateMouse(e);
         ant3d.DeltaX = ant3d.mylastevent.originalEvent.touches[0].pageX - e.originalEvent.changedTouches[0].pageX;
@@ -202,18 +194,15 @@ var ant3d = {
         ant3d.rotspeed = ant3d.DeltaX * .0001;
         ant3d.RunVideos();
       });
-      //    $(document).off('mousedown');
       $(ant3d.jRightHereBaby).on('mousedown', function (e) {
         ant3d.mylastevent = e;
         ant3d.UpdateMouse(e);
         ant3d.bFireDetectObjectsUnderMouse = true;
         ant3d.RunVideos();
       });
-      //    $(document).off('mouseup');
       $(ant3d.jRightHereBaby).on('mouseup', function (e) {
         ant3d.UpdateMouse(e);
         ant3d.DeltaX = ant3d.mylastevent.clientX - e.clientX;
-        //console.log(ant3d.DeltaX);
         ant3d.rotspeed = ant3d.DeltaX * .0001;
         ant3d.mylastevent = e;
         ant3d.RunVideos();
@@ -223,27 +212,12 @@ var ant3d = {
   },
   UpdateMouse: function (e) {
     console.log(e);
-    // if(e.ClientX){
-    //   ant3d.ant3dMouse.x = ( e.clientX / ($('#rightherebaby').innerWidth * ant3d.Wcoef) ) * 2 - 1;
-    //   ant3d.ant3dMouse.y = - ( e.clientY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
-    // }
-    // if(e.pageX){
-    //   ant3d.ant3dMouse.x = ( e.pageX / ($('#rightherebaby').innerWidth * ant3d.Wcoef) ) * 2 - 1;
-    //   ant3d.ant3dMouse.y = - ( e.pageY / ($('#rightherebaby').innerHeight * ant3d.Hcoef) ) * 2 + 1;
-    // }
-    let ox = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    
+    //let ox = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
+    //let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
     ant3d.ant3dMouse.x = ((e.clientX) / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    //ant3d.ant3dMouse.y = - ((e.clientY) / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
-    
-    console.log('old ' + ox + ' ' + oy);
-    
     ant3d.ant3dMouse.y = - ((e.pageY - $('#the3Dbox').offset().top) / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
-    //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
     
-    //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef))  ;
-    //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef))  ;
-    console.log('new ' + ant3d.ant3dMouse.x + ' ' + ant3d.ant3dMouse.y);
   },
   GetTextArray: function (inMyText, inMyLineLen) {
     //This function wraps text el-manuel aan.
