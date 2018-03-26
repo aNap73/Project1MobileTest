@@ -234,8 +234,10 @@ var ant3d = {
     let ox = (e.clientX / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
     let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
     console.log('old ' + ox + ' ' + oy);
-    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
+    //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
+    //ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef)) * 2 + 1;
+    ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef))  - 1;
+    ant3d.ant3dMouse.y = - (e.clientY / (ant3d.jRightHereBaby.innerHeight() * ant3d.Hcoef))  + 1;
     console.log('new ' + ant3d.ant3dMouse.x + ' ' + ant3d.ant3dMouse.y);
   },
   GetTextArray: function (inText, inLineLen) {
