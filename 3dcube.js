@@ -575,3 +575,15 @@ $(document).ready(function () {
   });
 });
 var int3d = ant3d;
+
+
+if(($("#searchBarMain").val().length()) === 0){
+  var msg = new SpeechSynthesisUtterance();
+  var voices = window.speechSynthesis.getVoices();
+  msg.text = "Please search for a valid term!";
+  msg.pitch = 0.5;
+  msg.rate = 0.4;
+
+  window.speechSynthesis.speak(msg);
+  return
+}
