@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//0
+//v 1.0.0.0.1.
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
@@ -235,8 +235,9 @@ var ant3d = {
     let oy = - (e.clientY / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
     let ofx = $(ant3d.jRightHereBaby).offset().left;
     let ofy = $(ant3d.jRightHereBaby).offset().top;
+
     ant3d.ant3dMouse.x = ((e.clientX) / (window.innerWidth * ant3d.Wcoef)) * 2 - 1;
-    ant3d.ant3dMouse.y = - ((ofy) / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
+    ant3d.ant3dMouse.y = - ((e.clientY) / (window.innerHeight * ant3d.Hcoef)) * 2 + 1;
     
     console.log('old ' + ox + ' ' + oy);
     //ant3d.ant3dMouse.x = (e.clientX / (ant3d.jRightHereBaby.innerWidth() * ant3d.Wcoef)) * 2 - 1;
