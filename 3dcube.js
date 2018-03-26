@@ -4,7 +4,6 @@
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
 //with the parameters SearchText, $(DomElement). See bottom of code for example.
-
 //--Fixed Mouse Detection
 //--Fixed Api Callback Call structure 
 //--A.A.N 3/26/2018
@@ -158,7 +157,6 @@ var ant3d = {
     ant3d.renderer.renderLists.dispose();
     ant3d.scene = new THREE.Scene();
     ant3d.renderer = new THREE.WebGLRenderer();
-
     ant3d.Resize();
     ant3d.colMovs.length = 0;
     ant3d.colHeadings.length = 0;
@@ -179,7 +177,6 @@ var ant3d = {
       $(ant3d.jRightHereBaby).on('dblclick',
         function (e) {
           ant3d.bDblClick = true;
-
         });
       $(ant3d.jRightHereBaby).on('click', function (e) {
         ant3d.mylastevent = e;
@@ -566,7 +563,7 @@ $(document).ready(function () {
     //ant3d.StartUp(jQueryDomElement, SearchText);   
     ant3d.StartUp($("#rightherebaby"), $('#input').val(), displayFrom3D);
     $('#input').val('');
-  });g
+  });
   $('#input').on('keyup', function (e) {
     if (e.key === 'Enter') {
       ant3d.StartUp($("#rightherebaby"), $('#input').val(), displayFrom3D);
@@ -575,15 +572,3 @@ $(document).ready(function () {
   });
 });
 var int3d = ant3d;
-
-
-if(($("#searchBarMain").val().length()) === 0){
-  var msg = new SpeechSynthesisUtterance();
-  var voices = window.speechSynthesis.getVoices();
-  msg.text = "Please search for a valid term!";
-  msg.pitch = 0.5;
-  msg.rate = 0.4;
-
-  window.speechSynthesis.speak(msg);
-  return
-}
