@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v.0.0.0.0.8
+//v.0.0.0.0.9
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy
 //The script is interfaced by calling the ant3d.Startup method
@@ -513,7 +513,8 @@ var ant3d = {
         console.log(graObj[0].object);
         ant3d.CurGiffy = graObj[0].object.MyGiffyLink;
         ant3d.CurYouTube = graObj[0].object.YouTubeId.videoId;
-        ant3d.ReadText = graObj[0].object.Title + ' ' + graObj[0].object.Article;
+        //ant3d.ReadText = graObj[0].object.Title + ' ' + graObj[0].object.Article;
+        ant3d.ReadText = graObj[0].object.Article;
         setTimeout(function () {
           ant3d.callpage(ant3d.CurGiffy, ant3d.CurYouTube, ant3d.ReadText);
         }, 1);
