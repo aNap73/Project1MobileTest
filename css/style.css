@@ -138,9 +138,7 @@ a {
   margin-right: 1%;
 
 }
-#btnAbout{
- margin-right: 6%;
-}
+
 .navBarPic{
   display: block;
 }
@@ -152,7 +150,4 @@ a {
   font-size: .8em;
   z-index: 25;
   display: inline; 
-}
-#Pedal{
-
 }

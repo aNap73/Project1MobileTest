@@ -59,6 +59,10 @@ var ant3d = {
   Coast: function (){
     ant3d.friction = 1;
   },
+  About:function(){
+        let abt = 'Welcome to Cycler a webpage by ant, vin and abu. Cycler allows you to search Giffy, WikiPedia and Youtube and reflect on their wisdom by cycling through the content cubes around you. You can swipe through the content cubes left and right or Pedal them with the control in this row. You may tripple click or tripple poke articles and static images to interact with them. Enjoy and Explore, Cycler.';
+        ant3d.callpage('', '', abt);    
+  },
   antDetectObjectsUnderMouse: function () {
     let col = [];
     if (!ant3d.bFireDetectObjectsUnderMouse) {
@@ -193,6 +197,9 @@ var ant3d = {
       });
       $('#Coast').on('click', function(){
         ant3d.Coast();
+      });
+      $('#About').on('click', function(){
+        ant3d.About();
       });
 
       
