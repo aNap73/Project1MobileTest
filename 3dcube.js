@@ -61,7 +61,7 @@ var ant3d = {
     ant3d.friction = 1;
   },
   About:function(){
-        let abt = 'Welcome to Cycler. Cycler allows you to obtain pure simultaneous knowledge from Giffy, WikiPedia and Youtube. Simply type in the search bar and hit the enter key. Knowledge cubes will surround you, DO NOT BE AFRAID. You may spin the cubes by swiping left and right. Tripple click or poke the cubes to interact with them and reflect. The icons on this bar allow you to Pedal, Break or Coast Cycler. Enjoy and Explore.';
+        let abt = 'Welcome to Cycler. Cycler allows you to obtain pure simultaneous knowledge from Giffy, WikiPedia and Youtube. Simply type in the search bar and hit the enter key. Knowledge cubes will surround you, DO NOT BE AFRAID. You may spin the cubes by swiping left and right. Tripple click or poke the cubes to interact with them and reflect. The icons on this bar allow you to Pedal in multiple of your dimensions, or Coast along as you see fit. Enjoy the Exploring.';
         ant3d.callpage('', '', abt);    
   },
   antDetectObjectsUnderMouse: function () {
