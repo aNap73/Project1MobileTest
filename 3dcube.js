@@ -50,6 +50,7 @@ var ant3d = {
   colLinks: [],
   bFireDetectObjectsUnderMouse: false,
   Pedal: function (){
+    ant3d.friction = .995;    
     ant3d.rotspeed += .01;
   },
   Break: function (){
