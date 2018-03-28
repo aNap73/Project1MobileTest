@@ -7,9 +7,7 @@
 //--Fixed Mouse Detection
 //--Fixed Api Callback Call structure 
 //--A.A.N 3/26/2018
-function displayFrom3D(giffy, youtube, text){
-  $('#output').text(giffy + youtube + text);
-}
+
 var ant3d = {
   bFirstTime: true,
   bDblClick: false,
@@ -61,7 +59,9 @@ var ant3d = {
     ant3d.friction = 1;
   },
   About:function(){
+        ant3d.StartUp($("#rightherebaby"), 'Knowledge', displayFrom3D);
         let abt = 'Welcome to Cycler. Cycler allows you to obtain pure simultaneous knowledge from Giffy, WikiPedia and Youtube. Simply type in the search bar and hit the enter key. Knowledge cubes will surround you, DO NOT BE AFRAID. You may spin the cubes by swiping left and right. Tripple click or poke the cubes to interact with them and reflect. The icons on this bar allow you to Pedal in multiple of your dimensions, or Coast along as you see fit. Enjoy the Exploring.';
+        
         ant3d.callpage('', '', abt);    
   },
   antDetectObjectsUnderMouse: function () {
