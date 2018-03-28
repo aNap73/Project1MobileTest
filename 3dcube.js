@@ -60,7 +60,7 @@ var ant3d = {
     ant3d.friction = 1;
   },
   About:function(){
-        let abt = 'Welcome to Cycler a webpage by ant, vin and abu. Cycler allows you to search Giffy, WikiPedia and Youtube and reflect on their wisdom by cycling through the content cubes around you. You can swipe through the content cubes left and right or Pedal them with the control in this row. You may tripple click or tripple poke articles and static images to interact with them. Enjoy and Explore, Cycler.';
+        let abt = 'Welcome to Cycler. Cycler allows you to obtain pure simultaneous knowledge from Giffy, WikiPedia and Youtube. Simply type in the search bar and hit the enter key. Knowledge cubes will surround you, DO NOT BE AFRAID. You may spin the cubes by swiping left and right. Tripple click or poke the cubes to interact with them and reflect. The icons on this bar allow you to Pedal, Break or Coast Cycler. Enjoy and Explore.';
         ant3d.callpage('', '', abt);    
   },
   antDetectObjectsUnderMouse: function () {
