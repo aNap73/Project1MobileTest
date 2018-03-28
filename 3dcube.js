@@ -54,7 +54,7 @@ var ant3d = {
   },
   Break: function (){
     ant3d.friction = .995;
-    ant3d.rotspeed = ant3d.rotspeed * ant3d.friction;
+    ant3d.rotspeed -= .01;
   },
   Coast: function (){
     ant3d.friction = 1;
