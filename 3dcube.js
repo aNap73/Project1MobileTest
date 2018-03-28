@@ -49,6 +49,16 @@ var ant3d = {
   colArticles: [],
   colLinks: [],
   bFireDetectObjectsUnderMouse: false,
+  Pedal: function (){
+    ant3d.rotspeed += .01;
+  },
+  Break: function (){
+    ant3d.friction = .995;
+    ant3d.rotspeed = ant3d.rotspeed * ant3d.friction;
+  },
+  Coast: function (){
+    ant3d.friction = 1;
+  },
   antDetectObjectsUnderMouse: function () {
     let col = [];
     if (!ant3d.bFireDetectObjectsUnderMouse) {
@@ -174,6 +184,19 @@ var ant3d = {
     if (ant3d.bFirstTime) {
       ant3d.callpage = inOutCallback;
       ant3d.bFirstTime = false;
+
+      $('#Pedal').on('click', function(){
+        ant3d.Pedal();
+      });
+      $('#Break').on('click', function(){
+        ant3d.Break();
+      });
+      $('#Coast').on('click', function(){
+        ant3d.Coast();
+      });
+
+      
+
       $(ant3d.jRightHereBaby).on('dblclick',
         function (e) {
           ant3d.bDblClick = true;
