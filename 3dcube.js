@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v.0.0.0.1.4 - 04/04/2018
+//v.0.0.0.1.5 - 04/04/2018
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy and You Tube
 //The script is interfaced by calling the ant3d.Startup method
@@ -337,7 +337,7 @@ var ant3d = {
       });
     //add map here
     let xm = '';
-    let myrnd = Math.floor((Math.random()*26));
+    let myrnd = Math.floor((Math.random()*22));
     let cubetype = 'unknown';
     let cubetypeid = -1;
     
