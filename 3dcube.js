@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v.0.0.0.1.6 - 04/04/2018
+//v.0.0.0.1.5 - 04/04/2018
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy and You Tube
 //The script is interfaced by calling the ant3d.Startup method
@@ -117,8 +117,7 @@ var ant3d = {
         // I owe you a beer CORS man... XXXOOO  
         ant3d.colYTVidImgs.push('http://cors-anywhere.herokuapp.com/' + item.snippet.thumbnails.default.url);
       });
-      ant3d.getWikiData(inSrch);
-      
+      ant3d.GenerateObjects();
     });
   },
   getWikiData: function (SearchTerm) {
@@ -135,7 +134,7 @@ var ant3d = {
         ant3d.colArticles.push(jsondata[2][index]);
         ant3d.colLinks.push(jsondata[3][index]);
       })
-      ant3d.GenerateObjects();      
+      ant3d.getYouTubeData(SearchTerm);
     });
   },
   GetGiffys: function (inSrch) {
@@ -152,8 +151,7 @@ var ant3d = {
         let gif = rd.images.looping.mp4;
         ant3d.colGiffys.push(gif);
       }
-      ant3d.getYouTubeData(SearchTerm);
-      
+      ant3d.getWikiData(inSrch);      
     });
   },
   RunVideos: function () {
@@ -290,10 +288,6 @@ var ant3d = {
   },
   GetTextArray: function (inMyText, inMyLineLen) {
     //This function wraps text el-manuel aan.
-    
-    if(!inMyText){
-      inMyText="NotFound";
-    }
     let col = [];
     let wrkwords = inMyText.split(' ');
     let wrkline = '';
