@@ -336,7 +336,7 @@ var ant3d = {
       });
     //add map here
     let xm = '';
-    let myrnd = Math.floor((Math.random()*20));
+    let myrnd = Math.floor((Math.random()*26));
     let cubetype = 'unknown';
     let cubetypeid = -1;
     
