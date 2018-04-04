@@ -1,5 +1,5 @@
 //A.Napolitano  03/22/2018
-//v.0.0.0.1.3 - 04/04/2018
+//v.0.0.0.1.4 - 04/04/2018
 //ant3d is a simple api extraction and 3d interface written in THREE.js
 //It currently displays data from the API's: Wikipedia, Giffy and You Tube
 //The script is interfaced by calling the ant3d.Startup method
@@ -11,6 +11,7 @@
 //--Moved copyright.
 //--A.A.N 3/28/2018
 //--YouTube Api/gapiMasterment contributed by Abu.
+//--A.A.N 4/4/2018 adjusting cowbell...
 var ant3d = {
   bFirstTime: true,
   bDblClick: false,
