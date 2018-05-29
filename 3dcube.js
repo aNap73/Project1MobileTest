@@ -169,7 +169,7 @@ var ant3d = {
       url: "https://radiant-beach-90288.herokuapp.com/api/getGF/?title='" + inSrch + "'",
       method: "GET"
     }).then(function (response) {
-        console.log('----------------------->', JSON.parse((response));
+        console.log('----------------------->', JSON.parse((response)));
         ant3d.colGiffys.length = 0;
         for (i = 0; i < response.data.length; i++) {
           let rd = response.data[i];
