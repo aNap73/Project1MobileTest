@@ -1,5 +1,6 @@
 # Cycler
 ### written by Anthony Napolitano
+
 [Live Site Here](https://anap73.github.io/Project1MobileTest/)
 This was one of my favorite projects at RBoot. I wrote the three.js pieces that glue the youtube, giffy, and materialize front end together. Truly awesome fun working in three.js.  I think this project was the one that I really learned to sling some callbacks. 
 
@@ -10,3 +11,7 @@ When you tripple click a cube I send a ray through the screen and process the fi
 Fun Stuff.
 
 Enjoy!
+
+## Update!
+
+Migrated the giffy call to my heroku server route from raw exposed api key as we were instructed originally. Still need to figure out a solution for gapi etc... working on it!
