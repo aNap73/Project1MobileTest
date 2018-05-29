@@ -13,7 +13,7 @@
 //--YouTube Api/gapiMasterment contributed by Abu.
 //--A.A.N 4/4/2018 adjusting cowbell...
 //--A.A.N 2018-05-29 FixAPIPass1
-//--A.A.N Work on CORS issues
+//--A.A.N 2018-05-29 UnFixAPIPass1 Work on CORS issues
 var ant3d = {
   bFirstTime: true,
   bDblClick: false,
@@ -140,41 +140,43 @@ var ant3d = {
     });
   },
   //AAN 2018-05-29 UnFixAPIPass1
+//   GetGiffys: function (inSrch) {
+//     let gkey = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
+//     let offset = Math.floor(Math.random() * 125);
+//     ant3d.colMovs.length = 0;
+//     $.ajax({
+//       url: "https://api.giphy.com/v1/gifs/search?rating=pg-13&api_key=" + gkey + "&q='" + inSrch + "'&offset=" + offset + "&limit=3",
+//       method: "GET"
+//     }).then(function (response) {
+//       ant3d.colGiffys.length = 0;
+//       for (i = 0; i < response.data.length; i++) {
+//         let rd = response.data[i];
+//         let gif = rd.images.looping.mp4;
+//         ant3d.colGiffys.push(gif);
+//       }
+//       ant3d.getWikiData(inSrch);      
+//     });
+//  },
+
   GetGiffys: function (inSrch) {
-    let gkey = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
+      //let gkey = "removedforsecurity";
     let offset = Math.floor(Math.random() * 125);
     ant3d.colMovs.length = 0;
+     //AAN 2018-05-29 FixAPIPass1
     $.ajax({
-      url: "https://api.giphy.com/v1/gifs/search?rating=pg-13&api_key=" + gkey + "&q='" + inSrch + "'&offset=" + offset + "&limit=3",
+      url: "https://radiant-beach-90288.herokuapp.com/api/getGF/?title='" + inSrch + "'",
+      crossDomain: true,
       method: "GET"
     }).then(function (response) {
-      ant3d.colGiffys.length = 0;
-      for (i = 0; i < response.data.length; i++) {
-        let rd = response.data[i];
-        let gif = rd.images.looping.mp4;
-        ant3d.colGiffys.push(gif);
-      }
-      ant3d.getWikiData(inSrch);      
-    });
- },
-  // GetGiffys: function (inSrch) {
-  //     //let gkey = "removedforsecurity";
-  //   let offset = Math.floor(Math.random() * 125);
-  //   ant3d.colMovs.length = 0;
-  //    //AAN 2018-05-29 FixAPIPass1
-  //   $.ajax({
-  //     url: "https://radiant-beach-90288.herokuapp.com/api/getGF/?title='" + inSrch + "'",
-  //     method: "GET"
-  //   }).then(function (response) {
-  //       ant3d.colGiffys.length = 0;
-  //       for (i = 0; i < response.data.length; i++) {
-  //         let rd = response.data[i];
-  //         let gif = rd.images.looping.mp4;
-  //         ant3d.colGiffys.push(gif);
-  //       }
-  //       ant3d.getWikiData(inSrch);      
-  //     });
-  // },
+        ant3d.colGiffys.length = 0;
+        for (i = 0; i < response.data.length; i++) {
+          let rd = response.data[i];
+          let gif = rd.images.looping.mp4;
+          ant3d.colGiffys.push(gif);
+        }
+        ant3d.getWikiData(inSrch);      
+      });
+  },
   RunVideos: function () {
     if (ant3d.iOS()) {
       //change behavior on iPhone to handle: Apple 'ALL VIDEO FULL SCREEN' decision.
