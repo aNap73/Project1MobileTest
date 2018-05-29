@@ -170,7 +170,7 @@ var ant3d = {
       crossDomain: true,
       method: "GET"
     }).then(function (response) {
-        console.log('----------------------->', response);
+        console.log('----------------------->', JASON.parse((response));
         ant3d.colGiffys.length = 0;
         for (i = 0; i < response.data.length; i++) {
           let rd = response.data[i];
