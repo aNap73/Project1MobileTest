@@ -12,6 +12,7 @@
 //--A.A.N 3/28/2018
 //--YouTube Api/gapiMasterment contributed by Abu.
 //--A.A.N 4/4/2018 adjusting cowbell...
+//--A.A.N 2018-05-29 FixAPIPass1
 var ant3d = {
   bFirstTime: true,
   bDblClick: false,
@@ -138,21 +139,34 @@ var ant3d = {
     });
   },
   GetGiffys: function (inSrch) {
-    let gkey = "aGpceXfwMY5TKtoH39N128oj2HirwBKv";
+    //let gkey = "removedforsecurity";
     let offset = Math.floor(Math.random() * 125);
     ant3d.colMovs.length = 0;
+    // $.ajax({
+    //   url: "https://api.giphy.com/v1/gifs/search?rating=pg-13&api_key=" + gkey + "&q='" + inSrch + "'&offset=" + offset + "&limit=5",
+    //   method: "GET"
+    // }).then(function (response) {
+    //   ant3d.colGiffys.length = 0;
+    //   for (i = 0; i < response.data.length; i++) {
+    //     let rd = response.data[i];
+    //     let gif = rd.images.looping.mp4;
+    //     ant3d.colGiffys.push(gif);
+    //   }
+    //   ant3d.getWikiData(inSrch);      
+    // });
+    //AAN 2018-05-29 FixAPIPass1
     $.ajax({
-      url: "https://api.giphy.com/v1/gifs/search?rating=pg-13&api_key=" + gkey + "&q='" + inSrch + "'&offset=" + offset + "&limit=5",
+      url: "https://radiant-beach-90288.herokuapp.com/api/getGF/?title='" + inSrch + "'",
       method: "GET"
     }).then(function (response) {
-      ant3d.colGiffys.length = 0;
-      for (i = 0; i < response.data.length; i++) {
-        let rd = response.data[i];
-        let gif = rd.images.looping.mp4;
-        ant3d.colGiffys.push(gif);
-      }
-      ant3d.getWikiData(inSrch);      
-    });
+        ant3d.colGiffys.length = 0;
+        for (i = 0; i < response.data.length; i++) {
+          let rd = response.data[i];
+          let gif = rd.images.looping.mp4;
+          ant3d.colGiffys.push(gif);
+        }
+        ant3d.getWikiData(inSrch);      
+      });
   },
   RunVideos: function () {
     if (ant3d.iOS()) {
