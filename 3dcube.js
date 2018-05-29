@@ -167,7 +167,6 @@ var ant3d = {
      //AAN 2018-05-29 FixAPIPass1
     $.ajax({
       url: "https://radiant-beach-90288.herokuapp.com/api/getGF/?title='" + inSrch + "'",
-      crossDomain: true,
       method: "GET"
     }).then(function (response) {
         console.log('----------------------->', JSON.parse((response));
